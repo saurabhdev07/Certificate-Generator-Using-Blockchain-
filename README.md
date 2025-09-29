@@ -31,7 +31,7 @@ It allows generating and managing certificates with a simple web interface.
 ---
 
 ## 📂 Project Structure
-certificate-generator/
+certificate-generator-using-certificates
 │
 ├── app.py # Main Flask app
 ├── requirements.txt # Dependencies
