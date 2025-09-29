@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>Saurabh's Webpage</title>
+    <style>
+        * {
+            margin: 10;
+            padding: 10;
+            color: aqua;
+        }
+       
+        body{
+            background: url();
+        }
+
+        .main {
+            width: 400px;
+            margin: 100px auto 0px auto;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            font-family: sans-serif;
+        }
+
+        .register {
+            position: relative;
+         background-color: rgba(0, 0, 0, 0.3);;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 15px;
+            border-radius: 10px;
+
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 4px 4px 20px rgba(20, 20, 20, 1.3);
+
+
+
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+
+
+
+            color: black;
+        }
+
+        .form1 {
+            padding: 4px;
+            padding-right: 3px;
+            box-sizing: border-box;
+            position: relative;
+            color: white;
+            left: 0px;
+            transition: 0.5s;
+
+        }
+
+        .toggle-btn {
+            cursor: pointer;
+            border: 0;
+            background: transparent;
+            padding: 10px 24px;
+            margin-left: 0px;
+            position: relative;
+            border: 0;
+            border-radius: 30px;
+        }
+
+        input[type="text"],
+        [type="date"] {
+            width: 97%;
+            margin: 2px;
+            margin-top: 4px;
+            height: 3.5vh;
+            outline: none;
+            border-top: 0px solid rgb(255, 255, 255, 0.5);
+            border-left: 0px solid rgba(255, 255, 255, 0.5);
+            border-right: 0px solid rgba(255, 255, 255, 0.5);
+            color: white;
+            font-family: 'Kanit';
+            font-size: 21px;
+            padding: 2px;
+            padding-top: 4px;
+            background: transparent;
+        }
+
+        input[type="text"]:hover {
+
+            color: aquamarine;
+            border-color: white;
+        }
+
+        input[type="date"]:hover {
+            color: aquamarine;
+            border-color: white;
+        }
+
+        label {
+            font-family: Delicious Handrawn;
+            font-size: 20px;
+
+
+        }
+
+
+
+
+        input[type="submit"] {
+            cursor: pointer;
+            position: relative;
+
+            left: 25%;
+
+            width: 200px;
+            height: 5vh;
+            outline: none;
+            background: transparent;
+            font-family: Delicious Handrawn;
+            font-size: 20px;
+            border-radius: 30px;
+            box-shadow: 0 0 20px 9px aqua;
+
+        }
+
+        input[type="submit"]:hover {
+            background-color: aqua;
+            color: black;
+            border: 0;
+
+        }
+
+        #resgister {
+            width: 396px;
+
+
+        }
+
+        #toggle-btn1 {
+            color: black;
+        }
+
+        .validate {
+            width: 400px;
+            position: absolute;
+            top: 0;
+            left: 400px;
+            padding: 2px;
+            width: 396px;
+            transition: 0.5s;
+
+        }
+
+        .regbody {
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+
+        #btn {
+            width: 220px;
+            position: relative;
+            margin: 35px auto;
+            box-shadow: 0 0 20px 9px aqua;
+            background: black;
+            border-radius: 30px;
+        }
+
+        #bt-ne {
+            top: 0;
+            position: absolute;
+            width: 110px;
+            height: 100%;
+            border-radius: 30px;
+            background: aqua;
+            transition: 0.5s;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            background: transparent;
+            bottom: 0;
+            color: transparent;
+            cursor: pointer;
+            height: auto;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: auto;
+        }
+        #video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    /* min-width: 100%;
+    min-height: 100%; */
+    width: 100%;
+    object-fit: contain;
+    z-index: -2; /* Ensure the video is behind other content */
+
+}
+
+#main {
+            width: 400px;
+            margin: 100px auto 0px auto;
+            /* display: none; Initially hide the main content
+             */
+            /* transform: scale(0); */
+            opacity: 0;
+            transition: opacity 10s ease; /* Add a transition for the display */
+        }
+        #main >*{
+            opacity:1;
+        }
+        .back{
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            position: absolute;
+            top: 0;
+            left:0;
+            z-index: -1;
+            opacity: 0;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <video autoplay muted loop id="video-background">
+        <source src="static\videos\production_id_4389377 (2160p).mp4" type="video/mp4">
+        
+    </video>
+    <div class="back"id="back"></div>
+    
+    <div class="main" id="main">
+        <div class="register">
+            <div id="btn">
+                <div id="bt-ne"></div>
+                <button type="button" class="toggle-btn" id="toggle-btn1" onclick="register()">Registration</button>
+                <button type="button" class="toggle-btn" id="toggle-btn2" onclick="login()"> Validate</button>
+
+            </div>
+            <h1>
+                Register Here
+
+            </h1>
+            <div class="regbody">
+                <div class="form1" id="resgi">
+                    <form id="resgister" action="/" method="post" autocomplete="off">
+                        <label>
+                            Enter Your Name
+                        </label>
+                        <br>
+                        <input name='t1' type="text" placeholder="e.g Mark twain" required>
+                        <br> <br>
+
+                        <label>
+                            Enter Issuer Name
+                        </label>
+                        <br>
+                        <input type="text" name='issuer' placeholder="Issuer Name" required>
+                        <br> <br>
+
+                        <label for="a1">
+                            Enter Your Accomplishment
+                        </label>
+                        <br>
+                        <input type="text" placeholder="Accomplishment" name="a1" required>
+                        <br> <br>
+
+                        <label for="d1">
+                            Enter the Date
+                        </label>
+                        <br>
+
+                        <input type="date" name="d1">
+                        <br> <br>
+
+                        <input type="submit" value="Submit Now" required>
+                        <br>
+
+                    </form>
+                </div>
+                <div class="validate"  id="valid">
+                    <form  action="/validate." id="validate" class="f2" method="post" autocomplete="off">
+                    <label>
+                        Enter Your Hash Code
+                    </label>
+                    <br> <br>
+                    <input type="text" name="hash" placeholder="Hash No." required>
+                    <br> <br>
+
+                    <input type="submit" value="Submit Now" onClick="check()">;
+                    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer style="background:transparent;
+           position:absolute;
+           right:0;
+           bottom:10px;
+           padding:2px;
+           box-shadow: 0 0 5px 6px aqua;
+           border-radius: 10px;"><a style="text-decoration:none" href="https://github.com/saurabhdev07">  &#169;      Design by b11</a></footer>
+    <script>
+        var x = document.getElementById("resgi");
+        var y = document.getElementById("valid");
+        var z = document.getElementById("bt-ne");
+        var a = document.getElementById("toggle-btn1");
+        var b = document.getElementById("toggle-btn2");
+        function login() {
+            x.style.left = "-400px";
+            y.style.left = "0";
+            z.style.left = "110px";
+
+            a.style.color = "aqua";
+            b.style.color = "black";
+
+        }
+        function register() {
+            x.style.left = "0";
+            y.style.left = "400px";
+            z.style.left = "0";
+            a.style.color = "black";
+            b.style.color = "aqua";
+
+        }
+        
+        // Function to show the main content after a delay
+        function showMainContent() {
+    var mainDiv = document.getElementById("main");
+    var backDiv = document.getElementById("back");
+    // mainDiv.style.transform = "scale(1)"; // Set scale to 1 to resize from center
+    mainDiv.style.opacity="1";
+    backDiv.style.opacity="0.4";
+    
+    mainDiv.style.transition = "opacity 2s ease"; // Apply transition
+    backDiv.style.transition= "opacity 5s ease";
+    
+    
+    
+}
+
+// Call the function after a delay (e.g., 5000 milliseconds for 5 seconds)
+setTimeout(showMainContent,5000);
+
+
+
+        
+    </script>
+</body>
+
+</html>
